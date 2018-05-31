@@ -23,5 +23,6 @@ public class Airport {
     private String type;
     private double lat;
     private double lng;
+    private String coordinates;
 
 }
