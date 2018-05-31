@@ -7,6 +7,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -20,6 +21,10 @@ public class AirportService {
     @Cacheable("airports")
     public List<Airport> getAllAirports() {
         return this.airportRepository.findAll();
+    }
+
+    public Optional<Airport> getAirportByIdent(String ident) {
+        return this.airportRepository.findById(ident);
     }
 
 }
