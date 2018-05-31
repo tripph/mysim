@@ -22,6 +22,11 @@ public class Airports {
         this.airportService = airportService;
         this.flightService = flightService;
     }
+    @GetMapping("/airports")
+    public List<Airport> airports() {
+        return this.airportService.getAllAirports();
+    }
+
     @GetMapping("/airports/active")
     public List<Airport> activeAirports() {
         List<FlightDTO> flights = this.flightService.getAllFlightDTOs();
