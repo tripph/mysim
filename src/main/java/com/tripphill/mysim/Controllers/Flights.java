@@ -4,6 +4,7 @@ import com.tripphill.mysim.Models.Airports.Airport;
 import com.tripphill.mysim.Models.Flights.Flight;
 import com.tripphill.mysim.Models.Flights.FlightDTO;
 import com.tripphill.mysim.Models.Flights.FlightPosition;
+import com.tripphill.mysim.Models.Flights.FlightStatus;
 import com.tripphill.mysim.Repositories.FlightRepository;
 import com.tripphill.mysim.Services.AirportService;
 import com.tripphill.mysim.Services.FlightService;
@@ -42,6 +43,7 @@ public class Flights {
             return null;
         }
         Airport d = dep.get();
+        flight.setStatus(FlightStatus.BOOKED);
         FlightPosition curpos = new FlightPosition(d.getLat(), d.getLng(), d.getElevation_ft(), Timestamp.from(Instant.now()));
         flight.setCurrent_position(curpos);
         return this.flightRepository.save(flight);
